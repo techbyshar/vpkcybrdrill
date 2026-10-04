@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Facilitator-led Vopak terminal cybersecurity incident exercise with a printable simulated response record.">
+  <title>Vopak Terminal Cybersecurity Incident Exercise</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a2373'/%3E%3Cpath d='M13 21h27l-5 8H8zm10 11h28l-5 8H18z' fill='%2300cfe1'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to exercise</a>
+  <header class="topbar">
+    <div class="brand"><img src="assets/vopak-deepblue.png" alt="Vopak"><span class="brand-rule"></span><div><small>Cybersecurity readiness</small><strong>Terminal Incident Exercise</strong></div></div>
+    <div class="top-links"><button type="button" data-panel="requirements">Requirements & guidance</button><button type="button" data-panel="points">Assessment & points</button></div>
+  </header>
+  <main id="main">
+    <section class="cover" id="coverView" aria-labelledby="coverTitle">
+      <div class="cover-inner">
+        <img src="assets/vopak-white.png" alt="Vopak" class="cover-logo">
+        <p class="cover-kicker">Facilitator-led annual exercise</p>
+        <h1 id="coverTitle">A suspected incident starts at the terminal.</h1>
+        <p class="cover-lead">Test how the team recognizes a potential cyber incident, coordinates Vopak response, makes the U.S. Coast Guard reporting decision, and records what happened.</p>
+        <div class="cover-outcomes"><div><b>01</b><span>Recognize and escalate</span></div><div><b>02</b><span>Coordinate a safe response</span></div><div><b>03</b><span>Simulate reporting and learn</span></div></div>
+        <p class="cover-note">All actions are simulated. The exercise does not contact authorities, create tickets, or change terminal systems.</p>
+        <button class="cover-button" type="button" id="openDetails">Prepare session</button>
+      </div>
+    </section>
+
+    <section class="screen" id="detailsView" hidden aria-labelledby="detailsTitle">
+      <div class="step-label">Preparation · 1 of 2</div><div class="screen-card"><p class="overline">Session details</p><h1 id="detailsTitle">Who is in the room?</h1><details class="facilitator-note"><summary>Facilitator notes</summary><p>Record the team that will take part in the simulated response. The designated CySO participates in the exercise.</p></details>
+        <form id="detailsForm"><div class="two-col"><label>Terminal or site<input id="siteName" required maxlength="70" placeholder="Terminal name"></label><label>Exercise date<input id="exerciseDate" type="date" required></label></div><div class="two-col"><label>Facilitator<input id="facilitatorName" required maxlength="70" placeholder="Name"></label><label>Designated CySO<input id="cysoName" required maxlength="70" placeholder="Name"></label></div><label>FSO<input id="fsoName" required maxlength="70" placeholder="Name"></label><label>Participants and roles <span class="hint">One person per line. Include the CySO and FSO if present.</span><textarea id="participants" rows="5" required placeholder="Alex Lee — CySO&#10;Taylor Hall — FSO&#10;Jordan Cruz — Operations"></textarea></label><div class="buttons"><button class="secondary" type="button" id="detailsBack">Back to cover</button><button class="primary" type="submit">Next: terminal context</button></div></form>
+      </div>
+    </section>
+
+    <section class="screen" id="contextView" hidden aria-labelledby="contextTitle">
+      <div class="step-label">Preparation · 2 of 2</div><div class="screen-card"><p class="overline">Terminal context</p><h1 id="contextTitle">What operation is at stake?</h1><details class="facilitator-note"><summary>Facilitator notes</summary><p>Use a realistic vessel or transfer situation for this terminal. The simulated incident starts on a workstation supporting that activity.</p></details>
+        <form id="contextForm"><label>Vessel or transfer status<input id="vesselStatus" required maxlength="120" value="Vessel transfer scheduled later today"></label><label>Affected function or workstation<input id="affectedSystem" required maxlength="120" value="Workstation supporting transfer coordination"></label><label>Operational decision authority<input id="decisionAuthority" required maxlength="90" placeholder="Terminal Manager or approved role"></label><div class="simulation-note"><strong>Simulation only</strong></div><div class="buttons"><button class="secondary" type="button" id="contextBack">Back to session details</button><button class="primary" type="submit">Begin exercise</button></div></form>
+      </div>
+    </section>
+
+    <section class="screen exercise-screen" id="exerciseView" hidden aria-labelledby="stageTitle">
+      <div class="progress-wrap"><div class="progress-meta"><span id="stageCounter"></span><span id="stepCounter"></span></div><div class="progress-track"><span id="progressFill"></span></div></div>
+      <div class="screen-card exercise-card">
+        <p class="overline" id="stageTag"></p><h1 id="stageTitle"></h1>
+        <div id="injectStep" class="stage-step"><div class="inject-media"><video id="injectVideo" controls playsinline muted preload="metadata" aria-label="Scenario video"></video><div class="video-tools"><button type="button" class="secondary" id="videoReplay">Replay video</button><span id="videoLabel"></span></div></div><p id="stageStory" class="story"></p><div id="stageFacts" class="facts"></div><div class="buttons"><button class="secondary" type="button" id="injectBack">Back</button><button class="primary" type="button" id="injectNext">Discuss the incident</button></div></div>
+        <div id="decisionStep" class="stage-step" hidden><h2 id="stageQuestion"></h2><details class="facilitator-note"><summary>Facilitator notes</summary><p>Ask the team before showing the alternatives. Capture the decision, owner, reasoning, and what remains unknown.</p></details><label>Team decision<textarea id="teamDecision" rows="6" placeholder="Record the team's own response"></textarea></label><div class="buttons"><button class="secondary" type="button" id="decisionBack">Back to incident</button><button class="primary" type="button" id="decisionNext">Compare approaches</button></div></div>
+        <div id="compareStep" class="stage-step" hidden><h2>Compare the approaches</h2><details class="facilitator-note"><summary>Facilitator notes</summary><p>Select the closest approach the team discussed, then reveal the facilitator guidance. The options are discussion aids.</p></details><div id="options" class="options"></div><button class="text-button" type="button" id="guideToggle">Reveal facilitator guidance</button><div id="guide" class="guide" hidden></div><div class="buttons"><button class="secondary" type="button" id="compareBack">Back to decision</button><button class="primary" type="button" id="compareNext">Record observations</button></div></div>
+        <div id="observeStep" class="stage-step" hidden><h2>What did the team demonstrate?</h2><details class="facilitator-note"><summary>Facilitator notes</summary><p>Assess independent performance before supplying missing direction. A prompt supplies missing direction. Repeating the question or asking “why?” does not automatically reduce points. Record concrete evidence and any N/A reason.</p></details><details class="assessment-private" id="assessmentPrivate"><summary>Facilitator assessment view</summary><p class="hint">Keep this view with the facilitator until debrief. Rate the team’s response before help, using evidence rather than the selected option.</p><div id="stageCriteria"></div></details><label>Facilitator record<textarea id="stageNotes" rows="10" placeholder="Performance and prompting: What was said or demonstrated? What direction did the facilitator supply?&#10;&#10;Learning after discussion: What did the team correct or add?&#10;&#10;Critical gaps: What requires follow-up regardless of points? Enter None if none identified.&#10;&#10;N/A reasons: Name each criterion marked N/A and explain why."></textarea></label><div class="buttons"><button class="secondary" type="button" id="observeBack">Back to approaches</button><button class="primary" type="button" id="observeNext">Next</button></div></div>
+        <div id="notifyStep" class="stage-step" hidden><h2>Simulated notification log</h2><details class="facilitator-note"><summary>Facilitator notes</summary><p>Have the CySO give the initial report aloud. Add one row for each intended recipient or internal handoff. No actual contact is made.</p></details><div class="two-col"><label>Person making simulated contact<input id="logWho" maxlength="80"></label><label>Intended recipient or role<input id="logTo" maxlength="100" placeholder="FBI, CISA, COTP, NRC, or Vopak role"></label></div><div class="two-col"><label>Simulated time<input id="logTime" type="time"></label><label>Method or approved route<input id="logMethod" maxlength="90" placeholder="Call or reporting route"></label></div><label>Essential facts communicated<textarea id="logFacts" rows="3"></textarea></label><label>Unknowns and simulated response or next action<textarea id="logUnknown" rows="3"></textarea></label><button type="button" class="secondary" id="addLog">Add simulated contact</button><div id="logList" class="log-list"></div><div class="buttons"><button class="secondary" type="button" id="notifyBack">Back to observations</button><button class="primary" type="button" id="notifyNext">Next stage</button></div></div>
+      </div>
+    </section>
+
+    <section class="screen" id="closeoutView" hidden aria-labelledby="closeoutTitle"><div class="step-label">Closeout</div><div class="screen-card"><p class="overline">Facilitator reflection</p><h1 id="closeoutTitle">What should change?</h1><details class="facilitator-note"><summary>Facilitator notes</summary><p>Capture the lessons and a corrective action. The report will include the stage decisions, observations, simulated contact log, and elapsed time.</p></details><form id="closeoutForm"><label>What worked well?<textarea id="worked" rows="3"></textarea></label><label>Where did the response slow down?<textarea id="gaps" rows="3"></textarea></label><div class="two-col"><label>Corrective action<input id="action" maxlength="250" placeholder="Specific action"></label><label>Action owner<input id="owner" maxlength="80" placeholder="Name or role"></label></div><label class="date-field">Target date<input id="due" type="date"></label><label>Facilitator conclusion<textarea id="conclusion" rows="3" placeholder="Objectives met, gaps, and follow-up"></textarea></label><div class="buttons"><button class="secondary" type="button" id="closeoutBack">Back to response</button><button class="primary" type="submit">Review report</button></div></form></div></section>
+
+    <section class="screen" id="reportView" hidden aria-labelledby="reportTitle"><div class="step-label">Exercise record</div><div class="screen-card report-card"><img src="assets/vopak-deepblue.png" alt="Vopak" class="report-logo"><p class="overline">Session complete</p><h1 id="reportTitle">Review the record</h1><details class="facilitator-note"><summary>Facilitator notes</summary><p>The report includes decisions, observed actions, simulated contacts, lessons, elapsed time, and a signature line for each listed participant.</p></details><details id="debriefDetails"><summary>Debrief assessment and response guidance</summary><div id="debriefBody"></div></details><div id="reportSummary" class="report-summary"></div><div class="simulation-note"><strong>Retain the signed copy</strong><p>Use Print or save PDF, then keep it through the facility's approved protected record process. The site does not store session entries.</p></div><div class="buttons"><button class="secondary" type="button" id="reportBack">Edit closeout</button><button class="primary" type="button" id="printButton">Print or save PDF</button></div></div></section>
+  </main>
+
+  <dialog id="infoDialog"><div class="dialog-inner"><div class="dialog-heading"><div><p class="overline" id="dialogKicker"></p><h2 id="dialogTitle"></h2></div><button type="button" id="dialogClose" aria-label="Close">×</button></div><div id="dialogBody"></div></div></dialog>
+  <section id="printReport" aria-label="Printable exercise record"></section>
+  <script src="app.js"></script>
+</body>
+</html>
